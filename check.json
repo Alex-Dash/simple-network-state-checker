@@ -1,0 +1,20 @@
+{
+    "use_cached_results": true,
+    "code_healthy": 202,
+    "code_degraded": 406,
+    "code_failed": 500,
+    "servers": [
+        {
+            "type": "http",
+            "display_name":"Google Resolve",
+            "check_period_seconds": 5,
+            "url": "https://google.com",
+            "follow_redir": false,
+            "success_codes": [301],
+            "check_code": true,
+            "test_count": 3,
+            "test_delay_ms": 800,
+            "critical": true
+        }
+    ]
+}
