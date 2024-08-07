@@ -41,6 +41,7 @@ You can pass `PORT` env var. If the port is `443`, the service would look for fi
 ```bash
 git clone https://github.com/Alex-Dash/simple-network-state-checker
 cd simple-network-state-checker
+go get
 go build
 ```
 
@@ -61,8 +62,8 @@ WantedBy=default.target
 RequiredBy=network.target
 ```
 
-Save the above into `nscs.service` and put it into `/etc/systemd/system/nscs.service`
+Save the above into `snsc.service` and put it into `/etc/systemd/system/snsc.service`
 
-Then run `sudo systemctl daemon-reload` and `sudo systemctl enable nscs`
+Then run `sudo systemctl daemon-reload` and `sudo systemctl enable snsc`
 
 You may now reboot or start your serivce manually
