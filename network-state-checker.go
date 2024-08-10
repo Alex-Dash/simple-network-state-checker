@@ -41,6 +41,7 @@ type MonServer struct {
 	CheckCode          *bool   `json:"check_code,omitempty"`
 	TestCount          *int    `json:"test_count,omitempty"`
 	TestDelayMs        *int    `json:"test_delay_ms,omitempty"`
+	TimeoutMs          *int    `json:"timeout,omitempty"`
 	CheckPeriodSeconds *int    `json:"check_period_seconds,omitempty"`
 
 	Critical *bool `json:"is_critical,omitempty"`
@@ -194,10 +195,15 @@ func init_chk() {
 						br = true
 						break
 					}
+					timeout_ms := 3000
+					if msrv.TimeoutMs != nil {
+						timeout_ms = *msrv.TimeoutMs
+					}
 					no_redir_cli := &http.Client{
 						CheckRedirect: func(req *http.Request, via []*http.Request) error {
 							return http.ErrUseLastResponse
 						},
+						Timeout: time.Duration(timeout_ms) * time.Millisecond,
 					}
 					req, err := http.NewRequest(http.MethodGet, *msrv.URL, nil)
 					if err != nil {

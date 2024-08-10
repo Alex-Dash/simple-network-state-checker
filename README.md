@@ -27,6 +27,7 @@ If you are not running milti-WANs, complex load-balancers or other stateful netw
             "check_code": true, // Whether or not to check HTTP code against the array above
             "test_count": 3, // How many tests would be in each batch
             "test_delay_ms": 800, // ms between tests in each batch (integer)
+            "timeout_ms":1000, // ms, TCP timeout
             "critical": true // If true, any hiccup would throw entire cluster into FAILED state
         }
     ]

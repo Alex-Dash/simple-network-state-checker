@@ -14,6 +14,7 @@
             "check_code": true,
             "test_count": 3,
             "test_delay_ms": 800,
+            "timeout_ms":1000,
             "critical": true
         }
     ]
